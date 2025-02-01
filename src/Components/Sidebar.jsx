@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // ✅ Import Link
+import { Link, NavLink } from 'react-router-dom'; // ✅ Import Link
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faStethoscope,
@@ -22,21 +22,21 @@ const Sidebar = () => {
   return (
     <div className={`fixedSidebar fixedSidebarLeft ${isSidebarVisible ? '' : 'active'}`}>
       {/* Sidebar Items */}
-      <Link to="/" className="sidebarItem" data-tooltip="Home">
+      <NavLink to="/"  className={({isActive}) =>(isActive? "is-active sidebarItem" : "sidebarItem" )} data-tooltip="Home">
       <FontAwesomeIcon icon={faHome} className="sidebarIcon" />
-      </Link>
-      <Link to="/marketplace" className="sidebarItem" data-tooltip="Market Place">
+      </NavLink>
+      <NavLink to="/marketplace" className={({isActive}) =>(isActive? "is-active sidebarItem" : "sidebarItem" )} data-tooltip="Market Place">
         <FontAwesomeIcon icon={faHorse} className="sidebarIcon" />
-      </Link>
-      <Link to="/veterinary-support" className="sidebarItem" data-tooltip="Veterinary Support">
+      </NavLink>
+      <NavLink to="/veterinary-support" className={({isActive}) =>(isActive? "is-active sidebarItem" : "sidebarItem" )} data-tooltip="Veterinary Support">
         <FontAwesomeIcon icon={faStethoscope} className="sidebarIcon" />
-      </Link>
-      <Link to="/products" className="sidebarItem" data-tooltip="Products">
+      </NavLink>
+      <NavLink to="/products" className={({isActive}) =>(isActive? "is-active sidebarItem" : "sidebarItem" )} data-tooltip="Products">
         <FontAwesomeIcon icon={faTags} className="sidebarIcon" />
-      </Link>
-      <Link to="/profile" className="sidebarItem" data-tooltip="Profile">
+      </NavLink>
+      <NavLink to="/profile" className={({isActive}) =>(isActive? "is-active sidebarItem" : "sidebarItem" )} data-tooltip="Profile">
         <FontAwesomeIcon icon={faUser} className="sidebarIcon" />
-      </Link>
+      </NavLink>
 
       {/* Toggle Button */}
       <button className="buttonTrigger" onClick={toggleSidebar} data-tooltip={isSidebarVisible ? 'Hide' : 'Show'}>

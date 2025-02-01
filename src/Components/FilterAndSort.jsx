@@ -31,14 +31,14 @@ const FilterAndSort = ({ onFilterChange, onSortChange }) => {
     <div className="filterSortWrapper">
       {/* Filter Button */}
       <button className="filterBtn" onClick={toggleFilter}>
-        <FontAwesomeIcon icon={faFilter} className="icon" />
+        <FontAwesomeIcon style={{width: "30px", height: "20px", marginBottom: "0px"}} icon={faFilter} className="icon" />
         Filter
       </button>
 
       {/* Sort Button */}
       <div className="sortDropdownContainer">
-        <button className="sortBtn" onClick={toggleSort}>
-          Sort By <FontAwesomeIcon icon={faChevronDown} className="icon" />
+        <button className="sortBtn flex align-middle justify-center" onClick={toggleSort}>
+          Sort By <FontAwesomeIcon style={{width: "30px", height: "20px", marginBottom: "0px"}} icon={faChevronDown} className="icon" />
         </button>
 
         {/* Sort Dropdown */}

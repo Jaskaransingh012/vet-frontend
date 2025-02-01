@@ -17,9 +17,8 @@ import DocChat from "./pages/DocChat.jsx";
 import AiDoctor from "./pages/AiDoctor.jsx";
 import Signup from "./pages/Signup.jsx";
 import MarketPlace from "./pages/MarketPlace.jsx";
-import veterinarySupport from "./pages/veterinarySupport.jsx";
 import Products from "./pages/Products.jsx";
-import ProductPage from "./pages/ProductPage.jsx";
+import AnimalProduct from "./pages/AnimalProduct.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,7 +26,7 @@ const router = createBrowserRouter(
       <Route path="" element={<About />} /> {/* Consistent naming */}
       <Route path="/marketplace" >
         <Route index element={<MarketPlace />} />
-        <Route path=":id" element={<ProductPage />} />
+        <Route path=":id" element={<AnimalProduct />} />
       </Route>
       <Route path="/veterinary-support" element={<veterinarySupport />} />
       <Route path='/Products' element={<Products />} />

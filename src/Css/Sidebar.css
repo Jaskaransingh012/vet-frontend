@@ -110,3 +110,8 @@
     opacity: 1;
     visibility: visible;
   }
+  .is-active svg {
+    color: #0065ee !important;
+  }
+
+  

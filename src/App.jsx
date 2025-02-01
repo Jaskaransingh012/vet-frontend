@@ -5,14 +5,19 @@ import Footer from "./Components/Footer.jsx";
 import Sidebar from "./Components/Sidebar.jsx";
 import Navbar from './Components/Navbar.jsx';
 import AnimalProduct from './pages/AnimalProduct.jsx';
+import { Toaster } from 'react-hot-toast';
+
 function App() {
   return (
     <>
-    {/* <AnimalProduct/> */}
       <Navbar />
       <Sidebar />
       <Outlet />
       <Footer />
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
     </>
   );
 }
