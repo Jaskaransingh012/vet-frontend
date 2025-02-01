@@ -1,11 +1,16 @@
+import React from 'react'
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import Header from "./Components/Header.jsx";
 import Footer from "./Components/Footer.jsx";
+import Sidebar from "./Components/Sidebar.jsx";
+import Navbar from './Components/Navbar.jsx';
+import AnimalProduct from './pages/AnimalProduct.jsx';
 function App() {
   return (
     <>
-      <Header />
+    {/* <AnimalProduct/> */}
+      <Navbar />
+      <Sidebar />
       <Outlet />
       <Footer />
     </>

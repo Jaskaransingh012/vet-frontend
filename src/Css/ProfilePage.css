@@ -1,0 +1,136 @@
+/* ProfilePage.css */
+.profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+  }
+  
+  /* Profile Header */
+  .profile-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #0065ee;
+  }
+  
+  .profile-name {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: #0065ee;
+  }
+  
+  .profile-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0065ee;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* Contact Information */
+  .contact-info {
+    background: #f9fafe;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .info-icon {
+    color: #0065ee;
+    width: 20px;
+  }
+  
+  /* Ads Posted Section */
+  .ads-section {
+    margin-top: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    color: #0065ee;
+    margin-bottom: 1.5rem;
+  }
+  
+  .ads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .ad-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .ad-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .ad-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .ad-details {
+    padding: 1rem;
+  }
+  
+  .ad-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .ad-status {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  .ad-status.available {
+    background: #e3fcef;
+    color: #00b894;
+  }
+  
+  .ad-status.sold {
+    background: #ffe3e3;
+    color: #ff7675;
+  }

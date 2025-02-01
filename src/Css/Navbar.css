@@ -1,0 +1,69 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem 0.1rem 3rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .magnetic-button {
+    position: relative;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0065ee;
+    background-color: transparent;
+    border: 2px solid #0065ee;
+    border-radius: 30px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.2s ease-out, background 0.3s ease;
+  }
+  
+  /* Magnetic hover effect */
+  .magnetic-button:hover {
+    color: white;
+    border-color: #0065ee;
+  }
+  
+  /* Radial hover effect (Light & Below Text) */
+  .magnetic-button::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(0, 101, 238), transparent); /* Lighter */
+    top: var(--y, 50%);
+    left: var(--x, 50%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: 0; /* Ensuring it stays behind the text */
+  }
+  
+  /* Make the background effect visible on hover */
+  .magnetic-button:hover::before {
+    opacity: 1;
+  }
+  
+  /* Ensure text stays on top */
+  .magnetic-button span {
+    position: relative;
+    z-index: 2; /* Text is above background effect */
+  }
+  
