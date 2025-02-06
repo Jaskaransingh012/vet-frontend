@@ -28,7 +28,7 @@ const Sidebar = () => {
       <NavLink to="/marketplace" className={({isActive}) =>(isActive? "is-active sidebarItem" : "sidebarItem" )} data-tooltip="Market Place">
         <FontAwesomeIcon icon={faHorse} className="sidebarIcon" />
       </NavLink>
-      <NavLink to="/veterinary-support" className={({isActive}) =>(isActive? "is-active sidebarItem" : "sidebarItem" )} data-tooltip="Veterinary Support">
+      <NavLink to="/veterinary-support/video-consult" className={({isActive}) =>(isActive? "is-active sidebarItem" : "sidebarItem" )} data-tooltip="Veterinary Support">
         <FontAwesomeIcon icon={faStethoscope} className="sidebarIcon" />
       </NavLink>
       <NavLink to="/products" className={({isActive}) =>(isActive? "is-active sidebarItem" : "sidebarItem" )} data-tooltip="Products">

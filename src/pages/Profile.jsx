@@ -4,8 +4,11 @@ import { faPhone, faEnvelope, faMapMarkerAlt, faUserFriends, faPlus, faEdit } fr
 import '../Css/ProfilePage.css';
 import img from "../assets/Images/7309681.jpg";
 import toast, { Toaster } from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const ProfilePage = () => {
+  const navigate = useNavigate();
   const user = {
     name: 'John Doe',
     profilePicture: img,
@@ -22,7 +25,8 @@ const ProfilePage = () => {
   };
 
   const handleEditProfile = () => {
-    toast.success('Successfully Edited!'); // Replace with actual edit functionality
+    navigate("/edit-profile")
+     // Replace with actual edit functionality
   };
 
   return (

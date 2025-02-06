@@ -19,6 +19,8 @@ import Signup from "./pages/Signup.jsx";
 import MarketPlace from "./pages/MarketPlace.jsx";
 import Products from "./pages/Products.jsx";
 import AnimalProduct from "./pages/AnimalProduct.jsx";
+import EditProfile from "./pages/EditProfile.jsx";
+import VeterinaryPage from "./pages/veterinarySupport.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,9 +30,10 @@ const router = createBrowserRouter(
         <Route index element={<MarketPlace />} />
         <Route path=":id" element={<AnimalProduct />} />
       </Route>
-      <Route path="/veterinary-support" element={<veterinarySupport />} />
+      <Route path="/veterinary-support/*" element={<VeterinaryPage />} />
       <Route path='/Products' element={<Products />} />
       <Route path="profile" element={<Profile />} />
+      <Route path="edit-profile/*" element={<EditProfile/>} />
       <Route path="aiDoctor" element={<AiDoctor />} />
       <Route path="doctor/chat" element={<DocChat />} /> {/* Fixed path */}
       <Route path="doctor/video" element={<DocVideo />} />
