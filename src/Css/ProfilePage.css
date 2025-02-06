@@ -2,7 +2,7 @@
 .profile-container {
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   min-height: 100vh;
-  padding: 2rem;
+  padding: 2rem 2rem 5px 2rem;
 }
 
 /* Animations */
@@ -274,7 +274,7 @@
 }
 /* Edit Profile Button */
 .edit-profile-button {
-  margin-top: 1.5rem;
+  margin-top: 0;
   background: #4a90e2;
   color: white;
   border: none;

@@ -8,27 +8,23 @@ import { Link } from "react-router-dom";
 function MarketPlace() {
   const animals = [
     {
-      id: 1,
-      image: horse, // Replace with actual animal image URL
-      price: "25,00, 000",
-      age: "2 Years",
-      breed: "Ravi ghoda",
-      location: "Pune, Maharashtra",
-      posted: "3 Days"
-    },
-    {
-      id: 2,
-      image: horse, // Replace with actual animal image URL
-      price: "20,00, 000",
-      age: "4 Years",
-      breed: "Ravi ghoda",
-      location: "Pune, Maharashtra",
-      posted: "2 Days"
+      name: "Buddy",
+      breed: "Golden Retriever",
+      age: 2,
+      gender: "Male",
+      price: 1200,
+      description: "Friendly and playful, loves kids and other pets. Vaccinated and healthy.",
+      imageUrl: "https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      seller: {
+        name: "John Doe",
+        location: "New York, USA",
+        avatar: "https://randomuser.me/api/portraits/men/1.jpg",
+      },
     }
   ]
   return (
     <div className="g-gray-100 min-h-screen py-12 px-6">
-      <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-2xl p-8">
+      <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-2xl p-8">
         <h1 className="text-3xl mb-8">
           🐾 Animal Marketplace
         </h1>
@@ -38,8 +34,8 @@ function MarketPlace() {
         <FilterAndSort />
         <div className="mt-5 flex gap-5 flex-wrap">
 
-          {animals.map(animal =>{
-            return <Link to={`${animal.id}`}> <AnimalCard key={animal.id} {...animal} /></Link>
+          {animals.map(animal => {
+            return <Link to={`${animal.id}`}> <AnimalCard key={animal.id} animal={animal} /></Link>
           })}
 
 

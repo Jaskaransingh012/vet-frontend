@@ -33,10 +33,13 @@ const ProfilePage = () => {
     <div className="profile-container">
       {/* Profile Header */}
       <div className="profile-header animate-slide-down">
+        <div className="container flex justify-center align-middle flex-col">
         <div className="profile-picture hover-scale">
           <img src={user.profilePicture} alt="Profile" />
         </div>
         <h1 className="profile-name">{user.name}</h1>
+        </div>
+       
         {/* <div className="profile-stats">
           <div className="stat-item hover-scale">
             <span className="stat-number">{user.followers}</span>
