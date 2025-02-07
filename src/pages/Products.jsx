@@ -13,11 +13,6 @@ const Products = () => {
 
   return (
     <div className="bg-gray-100">
-      <header className="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 text-white text-center py-8">
-        {/* <h1>Products</h1> */}
-        {/* <p>Discover your next spine-tingling adventure!</p> */}
-      </header>
-
       <main className="p-8">
         <section className="grid gap-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-h-[80vh] overflow-y-auto p-4">
           {[
@@ -68,54 +63,6 @@ const Products = () => {
               title: "Aloice and A Grump Next Door",
               author: "Jenny Proctor",
               price: "18.90",
-            },
-            {
-              img: "https://img.readthistwice.com/unsafe/240x360/books/4ab5c9fa-b58f-4231-9f9d-0a913fa46658.jpg",
-              title: "I Can't Make This Up",
-              author: "Jennifer A.Nielsen",
-              price: "25.99",
-            },
-            {
-              img: "https://m.media-amazon.com/images/I/91cH3iahx2L._AC_UF1000,1000_QL80_.jpg",
-              title: "The History Of Sketch Comedy",
-              author: "Ashok Kumawat",
-              price: "30.99",
-            },
-            {
-              img: "https://www.write-right.in/wp-content/uploads/2022/09/the-unporposed-guy-book.jpg",
-              title: "The Unproposed Guy",
-              author: "R.F.Kuang",
-              price: "12.99",
-            },
-            {
-              img: "https://m.media-amazon.com/images/I/71nbq0xBFPL._AC_UF1000,1000_QL80_.jpg",
-              title: "Being Funny",
-              author: "Markus Zusak",
-              price: "21.99",
-            },
-            {
-              img: "https://www.write-right.in/wp-content/uploads/2022/09/mrs-funnybones.jpg",
-              title: "Mrs Funny Gones",
-              author: "Paulo Coelho",
-              price: "17.99",
-            },
-            {
-              img: "https://m.media-amazon.com/images/I/91X4TW3n2ZL._AC_UF1000,1000_QL80_.jpg",
-              title: "Bobodenrik Comedy Comedy Comedy Drama",
-              author: "Taylor Jenkins Reid",
-              price: "14.99",
-            },
-            {
-              img: "https://www.write-right.in/wp-content/uploads/2022/09/english-august.jpg",
-              title: "English August",
-              author: "Kelly Barnhill",
-              price: "23.99",
-            },
-            {
-              img: "https://s2.r29static.com/bin/entry/759/x,80/2196395/image.jpg",
-              title: "Red White Royal Blue",
-              author: "Durjoy datta",
-              price: "28.99",
             },
           ].map((book, index) => (
             <div key={index} className="bg-white border-2 border-black rounded-lg shadow-md p-4 text-center hover:scale-110 hover:border-blue-700 hover:shadow-lg hover:bg-gray-300 transition-transform">
