@@ -2,6 +2,7 @@ import React from 'react'
 import "../Css/EditProfile.css"
 import { Link, Outlet, Route, Routes } from 'react-router-dom'
 import BasicInfo from '../Components/Profile/BasicInfo'
+import EditProfilePic from '../Components/Profile/EditProfile'
 
 const EditProfile = () => {
     return (
@@ -23,7 +24,7 @@ const EditProfile = () => {
                         <Routes>
                             <Route>
                                 <Route path='info' element={<BasicInfo/>} />
-                                <Route path='profile-picture' element={<>Heelo</>} />
+                                <Route path='profile-picture' element={<EditProfilePic  />} />
                             </Route>
                         </Routes>
                         <Outlet />

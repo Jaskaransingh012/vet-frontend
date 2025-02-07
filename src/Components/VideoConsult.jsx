@@ -13,9 +13,9 @@ const VideoConsult = () => {
             <p className="text-gray-600">Private consultation + Audio call - Starts at just ₹199</p>
             <div className="flex items-center space-x-2">
               <div className="flex -space-x-2">
-                <img src="/doctor1.jpg" alt="Doctor" className="w-10 h-10 rounded-full border-2 border-white" />
-                <img src="/doctor2.jpg" alt="Doctor" className="w-10 h-10 rounded-full border-2 border-white" />
-                <img src="/doctor3.jpg" alt="Doctor" className="w-10 h-10 rounded-full border-2 border-white" />
+                <img src="https://media.istockphoto.com/id/1301595548/photo/female-doctor-stock-photo.jpg?s=1024x1024&w=is&k=20&c=5TZmRIrv19xzHJG9DINZYPqxyZh6Ae-0utCXG7J0sGE=" alt="Doctor" className="w-10 h-10 rounded-full border-2 border-white" />
+                <img src="https://images.pexels.com/photos/4588057/pexels-photo-4588057.jpeg" alt="Doctor" className="w-10 h-10 rounded-full border-2 border-white" />
+                <img src="https://images.pexels.com/photos/7469215/pexels-photo-7469215.jpeg" alt="Doctor" className="w-10 h-10 rounded-full border-2 border-white" />
               </div>
               <span className="text-gray-700">+100 Vets are online</span>
             </div>

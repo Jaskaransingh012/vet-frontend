@@ -25,7 +25,7 @@ const ProfilePage = () => {
   };
 
   const handleEditProfile = () => {
-    navigate("/edit-profile")
+    navigate("/edit-profile/info")
      // Replace with actual edit functionality
   };
 

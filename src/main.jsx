@@ -10,7 +10,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import About from "./pages/About.jsx";
-import Login from "./pages/Login.jsx";
+// import Login from "./pages/Login.jsx";
 import Profile from "./pages/Profile.jsx";  // Fixed import
 import DocVideo from "./pages/DocVideo.jsx";
 import DocChat from "./pages/DocChat.jsx";
@@ -21,6 +21,10 @@ import Products from "./pages/Products.jsx";
 import AnimalProduct from "./pages/AnimalProduct.jsx";
 import EditProfile from "./pages/EditProfile.jsx";
 import VeterinaryPage from "./pages/veterinarySupport.jsx";
+import ChatPage from "./pages/chatPage.jsx";
+import PostAd from "./pages/PostAd.jsx";
+import LoginUser from "./pages/LoginPages/LoginUser.jsx";
+import ProductPage from "./pages/ProductPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,12 +36,15 @@ const router = createBrowserRouter(
       </Route>
       <Route path="/veterinary-support/*" element={<VeterinaryPage />} />
       <Route path='/Products' element={<Products />} />
+      <Route path='/Product-page' element={<ProductPage />} />
       <Route path="profile" element={<Profile />} />
-      <Route path="edit-profile/*" element={<EditProfile/>} />
+      <Route path="chat/*" element={<ChatPage />} />
+      <Route path="edit-profile/*" element={<EditProfile />} />
+      <Route path="/post-ad" element={<PostAd />} />
       <Route path="aiDoctor" element={<AiDoctor />} />
       <Route path="doctor/chat" element={<DocChat />} /> {/* Fixed path */}
       <Route path="doctor/video" element={<DocVideo />} />
-      <Route path="login" element={<Login />} />
+      <Route path="/login" element={<LoginUser/>} />
       <Route path="signup" element={<Signup />} />
     </Route>
   )

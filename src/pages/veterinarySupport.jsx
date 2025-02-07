@@ -1,8 +1,9 @@
 import React from 'react';
 import '../Css/VetrinaryPage.css';
-import logo from "../assets/Images/Logo.jpg";
+import logo from "../assets/Images/Logo.png";
 import { NavLink, Outlet, Route, Routes } from 'react-router-dom'; // Use NavLink instead of Link
 import VideoConsult from '../Components/VideoConsult';
+import FindVet from '../Components/Vetrinary/FindVet';
 
 const VeterinaryPage = () => {
   return (
@@ -42,7 +43,7 @@ const VeterinaryPage = () => {
 
       {/* Nested Routes */}
       <Routes>
-        <Route path="find-doctor" element={<div>Find Doctor</div>} />
+        <Route path="find-doctor" element={<FindVet/>} />
         <Route path="video-consult" element={<VideoConsult/>} />
         <Route path="surgeries" element={<div>Surgeries</div>} />
       </Routes>

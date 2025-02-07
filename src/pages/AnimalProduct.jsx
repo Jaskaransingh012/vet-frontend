@@ -38,16 +38,16 @@ const AnimalProduct = () => {
           {/* Left Column */}
           <div className="lg:w-1/2 space-y-6">
             <div className="relative group overflow-hidden rounded-2xl">
-              <img 
-                src={mainImage} 
-                alt="Main product" 
+              <img
+                src={mainImage}
+                alt="Main product"
                 className="w-full object-cover transform transition duration-500 group-hover:scale-105"
               />
               <div className="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-4 py-2 rounded-xl">
                 ⭐ {product.rating} Rating
               </div>
             </div>
-            
+
             <div className="flex gap-4">
               {product.images.map((img, index) => (
                 <img
@@ -69,10 +69,10 @@ const AnimalProduct = () => {
                 ${product.price} <span className="text-sm text-gray-500">(Negotiable)</span>
               </p>
               <p className="text-gray-600 text-lg leading-relaxed">{product.description}</p>
-              
+
               <div className="my-6 space-y-3">
                 {product.features.map((feature, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="flex items-center bg-gray-50 p-3 rounded-lg transition hover:bg-blue-50"
                   >
@@ -84,14 +84,14 @@ const AnimalProduct = () => {
             </div>
 
             {/* Owner Section */}
-            <Link 
+            <Link
               to={`/user/${product.owner.id}`}
               className="inline-block w-full transform transition hover:-translate-y-1"
             >
               <div className="flex items-center p-4 bg-white rounded-xl shadow-md hover:shadow-lg">
-                <img 
-                  src={product.owner.profilePic} 
-                  alt="Owner" 
+                <img
+                  src={product.owner.profilePic}
+                  alt="Owner"
                   className="w-14 h-14 rounded-full border-2 border-blue-200"
                 />
                 <div className="ml-4">
@@ -117,9 +117,11 @@ const AnimalProduct = () => {
             </div>
 
             {/* Contact Button */}
-            <button className="w-full py-4 bg-blue-600 text-white rounded-xl font-semibold text-lg shadow-lg transform transition hover:scale-105 hover:bg-blue-700 active:scale-95">
-              🐎 Contact Owner
-            </button>
+            <Link to={`/chat/${product.owner.id}`}>
+              <button className="w-full py-4 bg-blue-600 text-white rounded-xl font-semibold text-lg shadow-lg hover:scale-105 hover:bg-blue-700 active:scale-95">
+                🐎 Contact Owner
+              </button>
+            </Link>
           </div>
         </div>
       </div>
