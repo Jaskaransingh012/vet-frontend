@@ -1,89 +1,96 @@
-import React from 'react';
+import React from "react";
+import { FaRegHeart, FaHeart, FaMapMarkerAlt, FaCheck } from "react-icons/fa";
 
-const AnimalCard = ({ animal }) => {
+const AnimalCard = () => {
+  const [isLiked, setIsLiked] = React.useState(false);
+
+  const handleLike = () => setIsLiked(!isLiked);
+
   return (
-    <div className="group relative bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+    <div className="group border border-gray-100 rounded-2xl shadow-lg overflow-hidden w-80 bg-white transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 relative hover:border-gray-200 transform-gpu">
       {/* Image Section */}
-      <div className="relative h-48 overflow-hidden">
-        <img
-          src={animal.imageUrl}
-          alt={animal.name}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-        />
-        {/* Price Tag */}
-        <div className="absolute top-4 right-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-          ${animal.price}
-        </div>
-      </div>
-
-      {/* Content Section */}
-      <div className="p-6">
-        {/* Name and Breed */}
-        <h3 className="text-xl font-bold text-gray-800 mb-2">{animal.name}</h3>
-        <p className="text-sm text-gray-600 mb-4">{animal.breed}</p>
-
-        {/* Details */}
-        <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
-          <div className="flex items-center">
-            <svg
-              className="w-5 h-5 mr-2 text-purple-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <span>{animal.age} years</span>
-          </div>
-          <div className="flex items-center">
-            <svg
-              className="w-5 h-5 mr-2 text-pink-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-              />
-            </svg>
-            <span>{animal.gender}</span>
-          </div>
-        </div>
-
-        {/* Description */}
-        <p className="text-sm text-gray-600 mb-6">{animal.description}</p>
-
-        {/* Seller Info */}
-        <div className="flex items-center">
+      <div className="relative overflow-hidden">
+        <div className="relative h-56 bg-gradient-to-br from-blue-50 to-purple-50">
           <img
-            src={animal.seller.avatar}
-            alt={animal.seller.name}
-            className="w-10 h-10 rounded-full mr-3"
+            src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            alt="Golden Retriever"
+            className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 transform-gpu"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+        </div>
+        <button
+          onClick={handleLike}
+          className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-2.5 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95"
+        >
+          {isLiked ? (
+            <FaHeart className="text-red-500 w-6 h-6 animate-pop-in" />
+          ) : (
+            <FaRegHeart className="text-gray-700 w-6 h-6 transition-colors duration-200 hover:text-red-400" />
+          )}
+        </button>
+      </div>
+
+      {/* Details Section */}
+      <div className="p-5 space-y-4">
+        <div className="flex justify-between items-start">
           <div>
-            <p className="text-sm font-semibold text-gray-800">{animal.seller.name}</p>
-            <p className="text-xs text-gray-500">{animal.seller.location}</p>
+            <h3 className="text-2xl font-bold text-gray-900">
+              <span className="text-blue-600">₹</span>
+              <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                15,000
+              </span>
+            </h3>
+            <p className="text-lg font-semibold text-gray-900 mt-1">Golden Retriever</p>
           </div>
+          <span className="flex items-center gap-1.5 text-xs bg-emerald-100/90 text-emerald-800 px-3 py-1.5 rounded-full font-semibold backdrop-blur-sm border border-emerald-200/50">
+            <FaCheck className="w-3.5 h-3.5" />
+            Verified
+          </span>
+        </div>
+
+        <div className="flex flex-wrap gap-2">
+          <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
+            🐾 2 years
+          </span>
+          <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
+            ♂ Male
+          </span>
+        </div>
+
+        <div className="flex items-center gap-3 text-sm text-gray-600">
+          <div className="flex items-center gap-1.5">
+            <FaMapMarkerAlt className="w-4 h-4 text-gray-500 flex-shrink-0" />
+            <span className="truncate">Mumbai, India</span>
+          </div>
+          <div className="h-1 w-1 bg-gray-400 rounded-full" />
+          <span className="text-gray-500">3d ago</span>
+        </div>
+
+        <div className="flex items-center gap-2.5 px-4 py-2.5 bg-blue-50/80 rounded-lg backdrop-blur-sm">
+          <svg
+            className="w-5 h-5 text-blue-600 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span className="text-sm font-medium text-blue-800">
+            Vaccinated & Health Checked
+          </span>
         </div>
       </div>
 
-      {/* Hover Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300"></div>
-
-      {/* View Button on Hover */}
-      <button className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <span className="bg-white text-purple-600 px-6 py-2 rounded-full font-semibold shadow-lg hover:bg-purple-600 hover:text-white transition-colors duration-300">
-          View Details
+      {/* CTA Button */}
+      <button className="mx-5 mb-5 bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3.5 text-sm font-semibold transition-all duration-300 hover:from-blue-700 hover:to-blue-600 flex items-center justify-center gap-2 shadow-lg hover:shadow-blue-200/50 rounded-xl hover:-translate-y-0.5 active:translate-y-0 transform-gpu">
+        <span>Start Adoption Process</span>
+        <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
+          →
         </span>
       </button>
     </div>
