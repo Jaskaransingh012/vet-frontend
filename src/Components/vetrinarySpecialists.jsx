@@ -132,7 +132,6 @@ import vetSpecialist from "../assets/Images/generalVetrinary.jpeg";
 import vetSurgery from "../assets/Images/petSurgery.jpeg";
 import petDermatologist from "../assets/Images/pet-dermatology.webp";
 import cowFood from "../assets/Images/cowFood.jpeg";
-import { Link } from "react-router-dom";
 
 const VeterinarySpecialities = () => {
   const specialities = [
@@ -164,10 +163,24 @@ const VeterinarySpecialities = () => {
       image: cowFood,
       link: "/consult/vet/nutrition",
     },
+    // {
+    //   id: 5,
+    //   name: "Pet Cardiology",
+    //   price: "₹549",
+    //   image: "/images/vet-cardiology.svg",
+    //   link: "/consult/vet/cardiology",
+    // },
+    // {
+    //   id: 6,
+    //   name: "Pet Dentistry",
+    //   price: "₹499",
+    //   image: "/images/vet-dentistry.svg",
+    //   link: "/consult/vet/dentistry",
+    // },
   ];
 
   return (
-    <div id="TopSpecialityCardsContainer" className="bg-gray-50 py-8 max-w-6xl m-auto rounded-2xl mt-4">
+    <div id="TopSpecialityCardsContainer" className="bg-gray-50 py-8 w-full">
       <div className="homepage-section-wrapper max-w-[80vw] mx-auto px-4 ">
         <h2 className="homepage-section-heading text-2xl font-bold text-gray-800 mb-2">
           20+ Veterinary Specialities
@@ -185,13 +198,13 @@ const VeterinarySpecialities = () => {
         {/* Slider Container */}
         <div className="glide slider mt-6 overflow-hidden">
           <div className="glide__track" data-glide-el="track">
-            <ul className="glide__slides flex gap-4 justify-between">
+            <ul className="glide__slides flex gap-8 justify-start">
               {specialities.map((speciality) => (
                 <li
                   key={speciality.id}
-                  className="glide__slide flex-shrink-0 w-40"
+                  className="glide__slide flex-shrink-0 w-[250px]" // Increased width and made sure they fit in one row
                 >
-                  <div className="horizontal-list-card bg-white min-w-[200px] rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow">
+                  <div className="horizontal-list-card bg-white min-w-[250px] rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow">
                     <div className="top-speciality-card text-center">
                       <figure>
                         <img
@@ -205,12 +218,12 @@ const VeterinarySpecialities = () => {
                           {speciality.name}
                         </h4>
                         <p className="price text-gray-600 mt-2">{speciality.price}</p>
-                        <Link
-                          to={"/consult"}
+                        <a
+                          href={speciality.link}
                           className="link cta mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
                         >
                           Consult now
-                        </Link>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -218,7 +231,6 @@ const VeterinarySpecialities = () => {
               ))}
             </ul>
           </div>
-        </div>
 
           {/* Slider Controls */}
           {/* <div className="slider-controls mt-4 flex justify-center gap-4">
@@ -235,6 +247,7 @@ const VeterinarySpecialities = () => {
               <i className="icon-ic_next_cheveron">→</i>
             </button>
           </div> */}
+        </div>
       </div>
     </div>
   );
