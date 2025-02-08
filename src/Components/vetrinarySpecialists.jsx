@@ -3,7 +3,7 @@ import vetSpecialist from "../assets/Images/generalVetrinary.jpeg";
 import vetSurgery from "../assets/Images/petSurgery.jpeg";
 import petDermatologist from "../assets/Images/pet-dermatology.webp";
 import cowFood from "../assets/Images/cowFood.jpeg";
-
+import { Link } from "react-router-dom";
 
 const VeterinarySpecialities = () => {
   const specialities = [
@@ -52,7 +52,7 @@ const VeterinarySpecialities = () => {
   ];
 
   return (
-    <div id="TopSpecialityCardsContainer" className="bg-gray-50 py-8 w-full">
+    <div id="TopSpecialityCardsContainer" className="bg-gray-50 py-8 max-w-6xl m-auto rounded-2xl mt-4">
       <div className="homepage-section-wrapper max-w-[80vw] mx-auto px-4 ">
         <h2 className="homepage-section-heading text-2xl font-bold text-gray-800 mb-2">
           20+ Veterinary Specialities
@@ -90,12 +90,12 @@ const VeterinarySpecialities = () => {
                           {speciality.name}
                         </h4>
                         <p className="price text-gray-600 mt-2">{speciality.price}</p>
-                        <a
-                          href={speciality.link}
+                        <Link
+                          to={"/consult"}
                           className="link cta mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
                         >
                           Consult now
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -103,6 +103,7 @@ const VeterinarySpecialities = () => {
               ))}
             </ul>
           </div>
+        </div>
 
           {/* Slider Controls */}
           {/* <div className="slider-controls mt-4 flex justify-center gap-4">
@@ -119,7 +120,6 @@ const VeterinarySpecialities = () => {
               <i className="icon-ic_next_cheveron">→</i>
             </button>
           </div> */}
-        </div>
       </div>
     </div>
   );
