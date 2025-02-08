@@ -132,10 +132,7 @@ import vetSpecialist from "../assets/Images/generalVetrinary.jpeg";
 import vetSurgery from "../assets/Images/petSurgery.jpeg";
 import petDermatologist from "../assets/Images/pet-dermatology.webp";
 import cowFood from "../assets/Images/cowFood.jpeg";
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
-=======
->>>>>>> d7099ef (dharlo)
 
 const VeterinarySpecialities = () => {
   const specialities = [
@@ -170,13 +167,8 @@ const VeterinarySpecialities = () => {
   ];
 
   return (
-<<<<<<< HEAD
     <div id="TopSpecialityCardsContainer" className="bg-gray-50 py-8 max-w-6xl m-auto rounded-2xl mt-4">
       <div className="homepage-section-wrapper max-w-[80vw] mx-auto px-4 ">
-=======
-    <div id="TopSpecialityCardsContainer" className="bg-gray-50 py-8 w-full">
-      <div className="homepage-section-wrapper max-w-[80vw] mx-auto px-4">
->>>>>>> d7099ef (dharlo)
         <h2 className="homepage-section-heading text-2xl font-bold text-gray-800 mb-2">
           20+ Veterinary Specialities
         </h2>
@@ -190,7 +182,6 @@ const VeterinarySpecialities = () => {
           See all Specialities
         </a>
 
-<<<<<<< HEAD
         {/* Slider Container */}
         <div className="glide slider mt-6 overflow-hidden">
           <div className="glide__track" data-glide-el="track">
@@ -244,39 +235,6 @@ const VeterinarySpecialities = () => {
               <i className="icon-ic_next_cheveron">→</i>
             </button>
           </div> */}
-=======
-        {/* Cards Container */}
-        <div className="grid grid-cols-4 gap-6 mt-6">
-          {specialities.map((speciality) => (
-            <div
-              key={speciality.id}
-              className="horizontal-list-card bg-white min-w-[250px] rounded-lg shadow-md p-4 hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out"
-            >
-              <div className="top-speciality-card text-center">
-                <figure>
-                  <img
-                    src={speciality.image}
-                    alt={speciality.name}
-                    className="rounded-full w-20 h-20 mx-auto"
-                  />
-                </figure>
-                <div className="content mt-4">
-                  <h4 className="heading text-lg font-semibold text-gray-800">
-                    {speciality.name}
-                  </h4>
-                  <p className="price text-gray-600 mt-2">{speciality.price}</p>
-                  <a
-                    href={speciality.link}
-                    className="link cta mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
-                  >
-                    Consult now
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
->>>>>>> d7099ef (dharlo)
       </div>
     </div>
   );

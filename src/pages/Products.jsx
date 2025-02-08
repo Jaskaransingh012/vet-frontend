@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
 import pedigreeImage from "../assets/Images/pedigree.jpg";
 import glovesImage from "../assets/Images/gloves.jpg";
 import bowlImage from "../assets/Images/product_svg/svg/gloves.jpg";
 import poopImg from "../assets/Images/product_svg/svg/poop.jpg";
 import KuttaImage from "../assets/Images/product_svg/svg/kutta.jpg";
-=======
->>>>>>> d7099ef (dharlo)
 
 const Products = () => {
   const [cart, setCart] = useState([]);
@@ -21,13 +18,8 @@ const Products = () => {
 
   return (
     <div className="bg-gray-100">
-<<<<<<< HEAD
       <main className="p-8">
         <section className="grid gap-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  p-4">
-=======
-      <main className="p-8 overflow-y-auto h-screen">
-        <section className="grid gap-12 grid-cols-3 max-h-[60vh] overflow-y-auto p-4">
->>>>>>> d7099ef (dharlo)
           {[
             {
               img: "https://headsupfortails.com/cdn/shop/files/8906002480449_2.jpg?v=1738409894",
@@ -54,11 +46,6 @@ const Products = () => {
             {
               img: "https://getvetco.com/wp-content/uploads/2021/07/Cure-by-Design-500-gms-CBD-Hemp-Oil-for-Dogs-Cats-30-ml.jpg",
               title: "Pet Oil",
-<<<<<<< HEAD
-
-=======
-              
->>>>>>> d7099ef (dharlo)
               price: "12.99",
             },
             {
@@ -76,7 +63,6 @@ const Products = () => {
             {
               img: "https://www.bigbasket.com/media/uploads/p/l/40243877_1-first-pet-dog-poop-scooper-large-ergonomic-handle-non-messy.jpg",
               title: "Pet Poop Picker",
-<<<<<<< HEAD
 
               price: "18.90",
             },
@@ -94,23 +80,6 @@ const Products = () => {
                   Add to Cart
                 </button>
               </div>
-=======
-             
-              price: "18.90",
-            },
-          ].map((book, index) => (
-            <div key={index} className="bg-white border-2 border-black rounded-lg shadow-md p-4 text-center hover:scale-110 hover:border-blue-700 hover:shadow-lg hover:bg-gray-300 transition-transform">
-              <img src={book.img} alt={book.title} className="w-24 h-36 object-cover rounded-md" />
-              <h3 className="mt-2 text-lg font-semibold">{book.title}</h3>
-              <p className="text-gray-600">{book.author}</p>
-              <p className="text-red-700 font-bold mt-2">${book.price}</p>
-              <button
-                className="bg-blue-700 text-white rounded-md px-4 py-2 mt-2 transition-colors hover:bg-blue-500"
-                onClick={() => addToCart(book.title, book.price)}
-              >
-                Add to Cart
-              </button>
->>>>>>> d7099ef (dharlo)
             </div>
           ))}
         </section>
