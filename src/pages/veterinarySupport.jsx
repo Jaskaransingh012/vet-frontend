@@ -33,7 +33,7 @@ const VeterinaryPage = () => {
             className={({ isActive }) => isActive ? "active-link" : ""}
           >
             <div>
-              Get Consulted With AI
+            AI at Your Service!
             </div>
           </NavLink>
         </div>
