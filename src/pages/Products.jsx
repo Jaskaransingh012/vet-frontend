@@ -17,51 +17,51 @@ const Products = () => {
         <section className="grid gap-12 grid-cols-3 max-h-[60vh] overflow-y-auto p-4">
           {[
             {
-              img: "https://cdn.penguin.co.uk/dam-assets/books/9780241972953/9780241972953-jacket-large.jpg",
-              title: "A Call For Charlie Barnes",
-              author: "Joshua Ferris",
+              img: "https://headsupfortails.com/cdn/shop/files/8906002480449_2.jpg?v=1738409894",
+              title: "Pedigree",
+              
               price: "9.99",
             },
             {
-              img: "https://m.media-amazon.com/images/I/71JIuynbY5L._AC_UF1000,1000_QL80_.jpg",
-              title: "The Time Of Her Life",
-              author: "Tracy Bloom",
+              img: "https://midstchull.com/cdn/shop/products/7d07a0a8a7d6c38baa21885cf516d0a6.jpg?v=1705138030",
+              title: "Pet Grooming Gloves",
+              
               price: "19.99",
             },
             {
-              img: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388183826i/389627._UX160_.jpg",
-              title: "Diary Of A Wimpy Kid",
-              author: "Jeff Kinney",
+              img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdB-lenn7ez6WqBgLbwEzCF7ySXNaCDUY7Lg&s",
+              title: "Pet Bowl",
+              
               price: "14.09",
             },
             {
-              img: "https://www.google.com/imgres?q=pet%20products&imgurl=https%3A%2F%2Fhimalayawellness.in%2Fcdn%2Fshop%2Ffiles%2FHPF-PUPPY-1.2-Kg-FRONTSIDE.jpg%3Fv%3D1708921969&imgrefurl=https%3A%2F%2Fhimalayawellness.in%2Fproducts%2Fhealthy-pet-food-puppy-chicken-milk&docid=WzuNMgCHzD4bsM&tbnid=Gd0BgYVMFw6LHM&vet=12ahUKEwjIoJ_eg7KLAxXBrVYBHc_cE7oQM3oECBoQAA..i&w=2000&h=2000&hcb=2&ved=2ahUKEwjIoJ_eg7KLAxXBrVYBHc_cE7oQM3oECBoQAA",
-              title: "The Comedy Of Errors",
-              author: "William Shakespeare",
+              img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK51IwbTFlmexLH2lphfMAPmGOWmh-jTl52e3NuR3gEymUpAENR-OwmpBrx4Y1X6JG62I&usqp=CAU",
+              title: "Pet Harness",
+              
               price: "24.99",
             },
             {
-              img: "https://m.media-amazon.com/images/I/71fysklKnfL._UF1000,1000_QL80_.jpg",
-              title: "I Have Never",
-              author: "Camilla Isley",
+              img: "https://getvetco.com/wp-content/uploads/2021/07/Cure-by-Design-500-gms-CBD-Hemp-Oil-for-Dogs-Cats-30-ml.jpg",
+              title: "Pet Oil",
+              
               price: "12.99",
             },
             {
-              img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSummrDpDMbGdti7kKv33GBI4JzdVwbM7v4LA&s",
-              title: "The Road Trip",
-              author: "Beth O'Leary",
+              img: "https://goofytails.com/cdn/shop/products/Untitled-1_6527a59d-1b8c-4fd2-be40-ede8c35b8dcf.jpg?v=1676117247",
+              title: "Pet Toys",
+
               price: "18.99",
             },
             {
-              img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQcFyh7lXgQ1QAutYFKzYC8efP2RBtzMDOtA&s",
-              title: "Grief- A Comedy",
-              author: "Alison Larkin",
+              img: "https://m.media-amazon.com/images/I/71iWJiqLLLL._AC_UF1000,1000_QL80_.jpg",
+              title: "Pet Grooming Brush",
+             
               price: "24.89",
             },
             {
-              img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbv7IYL2vUHvrutZDuF7Ryn7n79JsqCRkpyA&s",
-              title: "Aloice and A Grump Next Door",
-              author: "Jenny Proctor",
+              img: "https://www.bigbasket.com/media/uploads/p/l/40243877_1-first-pet-dog-poop-scooper-large-ergonomic-handle-non-messy.jpg",
+              title: "Pet Poop Picker",
+             
               price: "18.90",
             },
           ].map((book, index) => (
