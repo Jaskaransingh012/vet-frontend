@@ -132,6 +132,7 @@ import vetSpecialist from "../assets/Images/generalVetrinary.jpeg";
 import vetSurgery from "../assets/Images/petSurgery.jpeg";
 import petDermatologist from "../assets/Images/pet-dermatology.webp";
 import cowFood from "../assets/Images/cowFood.jpeg";
+import { Link } from "react-router-dom";
 
 const VeterinarySpecialities = () => {
   const specialities = [
@@ -204,12 +205,12 @@ const VeterinarySpecialities = () => {
                           {speciality.name}
                         </h4>
                         <p className="price text-gray-600 mt-2">{speciality.price}</p>
-                        <a
-                          href={speciality.link}
+                        <Link
+                          to={"/consult"}
                           className="link cta mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
                         >
                           Consult now
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>

@@ -2,6 +2,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter, faChevronDown, faTimes } from '@fortawesome/free-solid-svg-icons';
 import '../Css/FilterAndSort.css';
+import { useState } from "react";
+import React, { useState2 } from "react";
+
+
 
 const FilterAndSort = ({ onFilterChange, onSortChange }) => {
   const [isFilterOpen, setFilterOpen] = useState(false);
