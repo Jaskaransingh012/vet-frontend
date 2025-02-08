@@ -1,7 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const API_KEY = "AIzaSyDevmJ3xpEgLeN4N-CguP1eZ15wJefaQUU"; 
+const API_KEY = "AIzaSyDevmJ3xpEgLeN4N-CguP1eZ15wJefaQUU"; // Store API key in environment variables
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
@@ -11,24 +11,27 @@ const Chatbot = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
 
+  useEffect(() => {
+    // Scroll to the bottom whenever messages update
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   const sendMessage = async (e) => {
     e?.preventDefault();
     const trimmedInput = input.trim();
     if (!trimmedInput || isLoading) return;
 
-    // Add user message
     const userMessage = { text: trimmedInput, sender: "user", timestamp: new Date() };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setIsLoading(true);
 
     try {
-      // Generate response from Gemini API
-      const result = await model.generateContent(trimmedInput);
-      const responseText = result.response.text();
+      const result = await model.generateContent({ contents: [{ role: "user", parts: [{ text: trimmedInput }] }] });
+      const responseText = result.response.candidates[0]?.content?.parts[0]?.text || "I couldn't generate a response.";
 
       const botMessage = {
-        text: responseText || "I'm having trouble understanding. Could you rephrase that?",
+        text: responseText,
         sender: "bot",
         timestamp: new Date(),
       };
@@ -52,7 +55,7 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="flex flex-col h-[600px] w-full max-w-2xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden">
+    <div className="flex flex-col h-[600px] w-full max-w-2xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden pt-4">
       {/* Chat Header */}
       <div className="bg-gradient-to-r from-teal-400 to-emerald-500 p-6">
         <div className="flex items-center space-x-4">
