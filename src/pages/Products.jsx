@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import pedigreeImage from "../assets/Images/pedigree.jpg";
+import glovesImage from "../assets/Images/gloves.jpg";
+import bowlImage from "../assets/Images/product_svg/svg/gloves.jpg"; 
+import poopImg from "../assets/Images/product_svg/svg/poop.jpg";   
+import KuttaImage from "../assets/Images/product_svg/svg/kutta.jpg"; 
 
 const Products = () => {
   const [cart, setCart] = useState([]);
@@ -17,33 +22,33 @@ const Products = () => {
         <section className="grid gap-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-h-[80vh] overflow-y-auto p-4">
           {[
             {
-              img: "https://cdn.penguin.co.uk/dam-assets/books/9780241972953/9780241972953-jacket-large.jpg",
-              title: "A Call For Charlie Barnes",
-              author: "Joshua Ferris",
+              img: pedigreeImage,
+              title: "Dog Food",
+              author: "Vet Villa",
               price: "9.99",
             },
             {
-              img: "https://m.media-amazon.com/images/I/71JIuynbY5L._AC_UF1000,1000_QL80_.jpg",
-              title: "The Time Of Her Life",
-              author: "Tracy Bloom",
-              price: "19.99",
+              img: glovesImage,
+              title: "Hand Gloves",
+              author: "Vet Villa",
+              price: "5.99",
             },
             {
-              img: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388183826i/389627._UX160_.jpg",
-              title: "Diary Of A Wimpy Kid",
-              author: "Jeff Kinney",
+              img: bowlImage,
+              title: "Pet Bowl", // Corrected title to match image
+              author: "Vet Villa",
               price: "14.09",
             },
             {
-              img: "https://rukminim2.flixcart.com/image/850/1000/k1mgu4w0/book/5/9/4/the-comedy-of-errors-original-imafh5vuhdqkfacb.jpeg?q=90&crop=false",
-              title: "The Comedy Of Errors",
-              author: "William Shakespeare",
+              img: poopImg,
+              title: "Poop Bags", // Corrected title to match image
+              author: "Vet Villa",
               price: "24.99",
             },
             {
-              img: "https://m.media-amazon.com/images/I/71fysklKnfL._UF1000,1000_QL80_.jpg",
-              title: "I Have Never",
-              author: "Camilla Isley",
+              img: KuttaImage,
+              title: "Dog Leash", // Corrected title
+              author: "Vet Villa",
               price: "12.99",
             },
             {
@@ -60,19 +65,19 @@ const Products = () => {
             },
             {
               img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbv7IYL2vUHvrutZDuF7Ryn7n79JsqCRkpyA&s",
-              title: "Aloice and A Grump Next Door",
+              title: "Alice and A Grump Next Door",
               author: "Jenny Proctor",
               price: "18.90",
             },
-          ].map((book, index) => (
+          ].map((item, index) => (
             <div key={index} className="bg-white border-2 border-black rounded-lg shadow-md p-4 text-center hover:scale-110 hover:border-blue-700 hover:shadow-lg hover:bg-gray-300 transition-transform">
-              <img src={book.img} alt={book.title} className="w-24 h-36 object-cover rounded-md" />
-              <h3 className="mt-2 text-lg font-semibold">{book.title}</h3>
-              <p className="text-gray-600">{book.author}</p>
-              <p className="text-red-700 font-bold mt-2">${book.price}</p>
+              <img src={item.img} alt={item.title} className="w-24 h-36 object-cover rounded-md mx-auto" />
+              <h3 className="mt-2 text-lg font-semibold">{item.title}</h3>
+              <p className="text-gray-600">{item.author}</p>
+              <p className="text-red-700 font-bold mt-2">${item.price}</p>
               <button
                 className="bg-blue-700 text-white rounded-md px-4 py-2 mt-2 transition-colors hover:bg-blue-500"
-                onClick={() => addToCart(book.title, book.price)}
+                onClick={() => addToCart(item.title, item.price)}
               >
                 Add to Cart
               </button>
