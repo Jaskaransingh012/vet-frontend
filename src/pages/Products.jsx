@@ -18,8 +18,8 @@ const Products = () => {
 
   return (
     <div className="bg-gray-100">
-      <main className="p-8 overflow-y-auto h-screen">
-        <section className="grid gap-12 grid-cols-3 max-h-[60vh] overflow-y-auto p-4">
+      <main className="p-8">
+        <section className="grid gap-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-h-[80vh] overflow-y-auto p-4">
           {[
             {
               img: pedigreeImage,
@@ -40,10 +40,16 @@ const Products = () => {
               price: "14.09",
             },
             {
-              img: "https://rukminim2.flixcart.com/image/850/1000/k1mgu4w0/book/5/9/4/the-comedy-of-errors-original-imafh5vuhdqkfacb.jpeg?q=90&crop=false",
-              title: "The Comedy Of Errors",
-              author: "William Shakespeare",
+              img: poopImg,
+              title: "Poop Bags", // Corrected title to match image
+              author: "Vet Villa",
               price: "24.99",
+            },
+            {
+              img: KuttaImage,
+              title: "Dog Leash", // Corrected title
+              author: "Vet Villa",
+              price: "12.99",
             },
             {
               img: KuttaImage,
@@ -71,9 +77,9 @@ const Products = () => {
             },
           ].map((item, index) => (
             <div key={index} className="bg-white border-2 border-black rounded-lg shadow-md p-4 text-center hover:scale-110 hover:border-blue-700 hover:shadow-lg hover:bg-gray-300 transition-transform">
-              <img src={item.img} alt={item.title} className="w-24 h-36 object-cover rounded-md mx-auto" />
+              <img src={item.img} alt={item.title} className=" h-52 object-cover rounded-md mx-auto w-2xl " />
               <h3 className="mt-2 text-lg font-semibold">{item.title}</h3>
-              <p className="text-gray-600">{item.author}</p>
+              <p className="m-s text-gray-600">{item.author}</p>
               <p className="text-red-700 font-bold mt-2">${item.price}</p>
               <button
                 className="bg-blue-700 text-white rounded-md px-4 py-2 mt-2 transition-colors hover:bg-blue-500"
