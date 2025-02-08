@@ -1,22 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Mail, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const LoginUser = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({ emailOrPhone: "", password: "" });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) return;
+
+        const response = await fetch("http://localhost:5000/api/users/profile", {
+          method: "GET",
+          headers: {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
+
+        const data = await response.json();
+        if (data.Success) {
+          setUser(data.user);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+    fetchUser();
+  }, []);
 
   const validateForm = () => {
     let newErrors = {};
-    if (!formData.email) {
-      newErrors.email = "Email is required.";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Enter a valid email address.";
+    if (!formData.emailOrPhone) {
+      newErrors.emailOrPhone = "Email or Phone is required.";
     }
-
     if (!formData.password) {
       newErrors.password = "Password is required.";
     } else if (formData.password.length < 6) {
@@ -31,32 +54,29 @@ const LoginUser = () => {
     e.preventDefault();
     if (!validateForm()) return;
 
-    // setLoading(true);
-    // try {
-    //   const response = await fetch("https://your-backend-api.com/login", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(formData),
-    //   });
+    setLoading(true);
+    try {
+      const response = await fetch("http://localhost:5000/api/users/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    //   const data = await response.json();
-    //   setLoading(false);
+      const data = await response.json();
+      setLoading(false);
 
-    //   if (response.ok) {
-    //     localStorage.setItem("token", data.token);
-    //     navigate("/dashboard");
-    //   } else {
-    //     alert(data.message || "Login failed");
-    //   }
-    // } catch (error) {
-    //   setLoading(false);
-    //   alert("Something went wrong. Please try again.");
-    // }
-
-    setTimeout(()=>{
-        toast.success("User logged in successfully")
-        navigate("/")
-    },1000)
+      if (data.Success) {
+        localStorage.setItem("token", data.token); // Store token
+        localStorage.setItem("user", JSON.stringify(data.user)); // Store user data
+        toast.success("Login successful!");
+        navigate("/"); // Redirect to dashboard or home page
+      } else {
+        toast.error(data.message || "Login failed");
+      }
+    } catch (error) {
+      setLoading(false);
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -65,17 +85,23 @@ const LoginUser = () => {
         <h2 className="text-4xl font-bold text-gray-900 mb-6">🔑 Login</h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Email Input */}
+          {/* Email/Phone Input */}
           <div className="relative">
             <Mail className="absolute left-4 top-3 text-gray-500" size={20} />
             <input
-              type="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className={`w-full px-12 py-3 bg-gray-100 rounded-lg border ${errors.email ? "border-red-500" : "border-gray-300"} focus:ring-2 focus:ring-blue-500 outline-none`}
+              type="text"
+              placeholder="Email or Phone"
+              value={formData.emailOrPhone}
+              onChange={(e) =>
+                setFormData({ ...formData, emailOrPhone: e.target.value })
+              }
+              className={`w-full px-12 py-3 bg-gray-100 rounded-lg border ${
+                errors.emailOrPhone ? "border-red-500" : "border-gray-300"
+              } focus:ring-2 focus:ring-blue-500 outline-none`}
             />
-            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+            {errors.emailOrPhone && (
+              <p className="text-red-500 text-sm mt-1">{errors.emailOrPhone}</p>
+            )}
           </div>
 
           {/* Password Input */}
@@ -85,18 +111,16 @@ const LoginUser = () => {
               type="password"
               placeholder="Password"
               value={formData.password}
-              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-              className={`w-full px-12 py-3 bg-gray-100 rounded-lg border ${errors.password ? "border-red-500" : "border-gray-300"} focus:ring-2 focus:ring-blue-500 outline-none`}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
+              className={`w-full px-12 py-3 bg-gray-100 rounded-lg border ${
+                errors.password ? "border-red-500" : "border-gray-300"
+              } focus:ring-2 focus:ring-blue-500 outline-none`}
             />
-            {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
-          </div>
-
-          {/* Remember Me & Forgot Password */}
-          <div className="flex justify-between text-sm text-gray-600">
-            <label className="flex items-center">
-              <input type="checkbox" className="mr-2" /> Remember Me
-            </label>
-            <a href="#" className="text-blue-600 hover:underline">Forgot Password?</a>
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+            )}
           </div>
 
           {/* Submit Button */}
@@ -109,27 +133,12 @@ const LoginUser = () => {
           </button>
         </form>
 
-        {/* Divider */}
-        <div className="relative my-6">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-300"></div>
-          </div>
-          <div className="relative bg-white px-4 text-gray-500">OR</div>
-        </div>
-
-        {/* Social Login */}
-        <div className="flex space-x-4">
-          <button className="flex-1 py-3 bg-red-600 text-white rounded-lg font-semibold shadow-md hover:bg-red-700 transition-all">
-            🔴 Google
-          </button>
-          <button className="flex-1 py-3 bg-blue-800 text-white rounded-lg font-semibold shadow-md hover:bg-blue-900 transition-all">
-            🔵 Facebook
-          </button>
-        </div>
-
         {/* Signup Link */}
         <p className="mt-6 text-gray-600">
-          Don't have an account? <a href="/signup" className="text-blue-600 hover:underline">Sign Up</a>
+          Don't have an account?{" "}
+          <a href="/signup" className="text-blue-600 hover:underline">
+            Sign Up
+          </a>
         </p>
       </div>
     </div>

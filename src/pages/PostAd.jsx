@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 const PostAd = () => {
-    const navigate = useNavigate();
+
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: "",
     price: "",
@@ -14,28 +17,96 @@ const PostAd = () => {
   });
 
   const [imagePreviews, setImagePreviews] = useState([]);
+  const [userId, setUserId] = useState(null);
+
+  // Check authentication on component mount
+  useEffect(() => {
+    const checkAuth = () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        toast.error("Please login to post an ad");
+        navigate("/login");
+        return;
+      }
+
+      try {
+        const decoded = jwtDecode(token);
+        console.log("Decoded token in frontend:", decoded); // Log the decoded token
+        setUserId(decoded.userId); // Ensure this matches the payload structure
+      } catch (error) {
+        localStorage.removeItem("token");
+        toast.error("Session expired. Please login again");
+        navigate("/login");
+      }
+    };
+
+    checkAuth();
+  }, [navigate]);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleImageUpload = (e) => {
-    const files = Array.from(e.target.files);
-    const previewURLs = files.map((file) => URL.createObjectURL(file));
+  // const handleImageUpload = (e) => {
+  //   const files = Array.from(e.target.files);
+  //   const previewURLs = files.map((file) => URL.createObjectURL(file));
+  //   setFormData({ ...formData, images: files });
+  //   setImagePreviews(previewURLs);
+  // };
 
-    setFormData({ ...formData, images: files });
-    setImagePreviews(previewURLs);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    toast.success(
-        "Your ad has been submitted successfully!."
-      );
-    navigate("/");
+    const userString = localStorage.getItem("user"); // Retrieve the JSON string
+    const userObject = JSON.parse(userString);
+    const userId = userObject._id;
+    // Retrieve user ID from localStorage
+    console.log("Stored User ID:", userId);
+
+    if (!userId) {
+      toast.error("You must be logged in to post an ad");
+      return;
+    }
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("No token found. Please login again.");
+      navigate("/login");
+      return;
+    }
+
+    console.log("Sending token:", token); // Debugging log
+
+    const adData = {
+      title: formData.title,
+      price: formData.price,
+      description: formData.description,
+      category: formData.category,
+      location: formData.location,
+      userId,
+    };
+    console.log(adData)
+
+    try {
+      const response = await axios.post("http://localhost:5000/api/animals/", adData, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer 67a748f2d486daade166c293`,  // Ensure Bearer token format
+        },
+      });
+
+      if (response.status === 201) {
+        toast.success("Ad posted successfully!");
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Error posting ad:", error.response?.data || error.message);
+      toast.error(error.response?.data?.message || "Failed to post ad");
+    }
   };
 
+
+
+  // Keep the existing UI exactly as it was
   return (
     <div className="min-h-screen pt-5 flex items-center justify-center bg-gradient-to-br from-blue-50 to-gray-200 px-4">
       <div className="bg-white shadow-2xl rounded-3xl p-8 w-full max-w-5xl">
@@ -123,7 +194,6 @@ const PostAd = () => {
               type="file"
               multiple
               accept="image/*"
-              onChange={handleImageUpload}
               className="mt-1 w-full p-3 border rounded-xl shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none"
             />
             {/* Image Previews */}

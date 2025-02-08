@@ -1,11 +1,46 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/Images/Logo.png";
+import { jwtDecode } from "jwt-decode"; // Library to decode JWT
 
 const Navbar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to manage login status
   const loginRef = useRef(null);
   const signupRef = useRef(null);
-  const postAdRef = useRef(null);
+
+  // Check if the user is logged in on component mount
+  useEffect(() => {
+    const checkAuth = () => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        try {
+          const decodedToken = jwtDecode(token);
+          const currentTime = Date.now() / 1000;
+
+          if (decodedToken.exp > currentTime) {
+            setIsLoggedIn(true);
+          } else {
+            localStorage.removeItem("token");
+            setIsLoggedIn(false);
+          }
+        } catch (error) {
+          console.error("Invalid token:", error);
+          localStorage.removeItem("token");
+          setIsLoggedIn(false);
+        }
+      } else {
+        setIsLoggedIn(false);
+      }
+    };
+
+    checkAuth(); // Run once when component mounts
+
+    // Listen for localStorage changes (when login/logout occurs)
+    window.addEventListener("storage", checkAuth);
+
+    return () => window.removeEventListener("storage", checkAuth);
+  }, []);
+
 
   const handleMouseMove = (e, ref) => {
     const button = ref.current;
@@ -25,6 +60,13 @@ const Navbar = () => {
     ref.current.style.transform = "translate(0, 0)";
   };
 
+  // Function to handle logout
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user"); // Remove the JWT from localStorage
+    setIsLoggedIn(false); // Update login status
+  };
+
   return (
     <nav className="w-full py-4 px-6 bg-white/10 backdrop-blur-md shadow-md flex justify-between items-center rounded-xl">
       {/* Logo Section */}
@@ -40,27 +82,38 @@ const Navbar = () => {
 
       {/* Buttons Section */}
       <div className="flex space-x-4">
-        <Link to="/login">
-          <button
-            ref={loginRef}
-            className="relative px-6 py-2 text-white font-semibold bg-gradient-to-r from-blue-500 to-blue-700 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
-            onMouseMove={(e) => handleMouseMove(e, loginRef)}
-            onMouseLeave={() => handleMouseLeave(loginRef)}
-          >
-            Login
-          </button>
-        </Link>
+        {!isLoggedIn ? (
+          <>
+            <Link to="/login">
+              <button
+                ref={loginRef}
+                className="relative px-6 py-2 text-white font-semibold bg-gradient-to-r from-blue-500 to-blue-700 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                onMouseMove={(e) => handleMouseMove(e, loginRef)}
+                onMouseLeave={() => handleMouseLeave(loginRef)}
+              >
+                Login
+              </button>
+            </Link>
 
-        <Link to="/signup">
+            <Link to="/signup">
+              <button
+                ref={signupRef}
+                className="relative px-6 py-2 text-white font-semibold bg-gradient-to-r from-purple-500 to-purple-700 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                onMouseMove={(e) => handleMouseMove(e, signupRef)}
+                onMouseLeave={() => handleMouseLeave(signupRef)}
+              >
+                Signup
+              </button>
+            </Link>
+          </>
+        ) : (
           <button
-            ref={signupRef}
-            className="relative px-6 py-2 text-white font-semibold bg-gradient-to-r from-purple-500 to-purple-700 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
-            onMouseMove={(e) => handleMouseMove(e, signupRef)}
-            onMouseLeave={() => handleMouseLeave(signupRef)}
+            className="relative px-6 py-2 text-white font-semibold bg-gradient-to-r from-red-500 to-red-700 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            onClick={handleLogout} // Handle logout
           >
-            Signup
+            Logout
           </button>
-        </Link>
+        )}
 
         {/* Post Ad Button */}
         <Link to="/post-ad">
