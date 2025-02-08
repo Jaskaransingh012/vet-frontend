@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter, faChevronDown, faTimes } from '@fortawesome/free-solid-svg-icons';
 import '../Css/FilterAndSort.css';
+import { useState } from "react";
+import React, { useState2 } from "react";
+
+
 
 const FilterAndSort = ({ onFilterChange, onSortChange }) => {
   const [isFilterOpen, setFilterOpen] = useState(false);
   const [isSortOpen, setSortOpen] = useState(false);
   const [selectedSort, setSelectedSort] = useState('');
+  const [selectedFilters, setSelectedFilters] = useState({
+    dogs: false,
+    cats: false,
+    birds: false,
+    fish: false,
+  });
 
   const toggleFilter = () => {
     setFilterOpen(!isFilterOpen);
@@ -25,6 +35,15 @@ const FilterAndSort = ({ onFilterChange, onSortChange }) => {
   const clearSort = () => {
     setSelectedSort('');
     onSortChange('');
+  };
+
+  const handleFilterChange = (e) => {
+    const { name, checked } = e.target;
+    setSelectedFilters((prevState) => {
+      const updatedFilters = { ...prevState, [name]: checked };
+      onFilterChange(updatedFilters); // Pass the updated filters to parent
+      return updatedFilters;
+    });
   };
 
   return (
@@ -68,10 +87,10 @@ const FilterAndSort = ({ onFilterChange, onSortChange }) => {
           <div className="modalContent">
             <h3>Select Filters</h3>
             <div className="filterOptions">
-              <label><input type="checkbox" value="dogs" /> Dogs</label>
-              <label><input type="checkbox" value="cats" /> Cats</label>
-              <label><input type="checkbox" value="birds" /> Birds</label>
-              <label><input type="checkbox" value="fish" /> Fish</label>
+              <label><input type="checkbox" name="dogs" checked={selectedFilters.dogs} onChange={handleFilterChange} /> Dogs</label>
+              <label><input type="checkbox" name="cats" checked={selectedFilters.cats} onChange={handleFilterChange} /> Cats</label>
+              <label><input type="checkbox" name="birds" checked={selectedFilters.birds} onChange={handleFilterChange} /> Birds</label>
+              <label><input type="checkbox" name="fish" checked={selectedFilters.fish} onChange={handleFilterChange} /> Fish</label>
             </div>
             <button className="applyBtn" onClick={toggleFilter}>Apply</button>
           </div>

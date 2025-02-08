@@ -4,6 +4,7 @@ import logo from "../assets/Images/Logo.png";
 import { NavLink, Outlet, Route, Routes } from 'react-router-dom'; // Use NavLink instead of Link
 import VideoConsult from '../Components/VideoConsult';
 import FindVet from '../Components/Vetrinary/FindVet';
+import Chatbot from '../Components/chatbot';
 
 const VeterinaryPage = () => {
   return (
@@ -28,11 +29,11 @@ const VeterinaryPage = () => {
             </div>
           </NavLink>
           <NavLink 
-            to="/veterinary-support/surgeries" 
+            to="/veterinary-support/chatbot" 
             className={({ isActive }) => isActive ? "active-link" : ""}
           >
             <div>
-              Surgeries
+            AI at Your Service!
             </div>
           </NavLink>
         </div>
@@ -45,7 +46,8 @@ const VeterinaryPage = () => {
       <Routes>
         <Route path="find-doctor" element={<FindVet/>} />
         <Route path="video-consult" element={<VideoConsult/>} />
-        <Route path="surgeries" element={<div>Surgeries</div>} />
+        {/* <Route path="surgeries" element={<div>Surgeries</div>} /> */}
+        <Route path="chatbot" element={<Chatbot />} />
       </Routes>
       <Outlet/>
     </div>
