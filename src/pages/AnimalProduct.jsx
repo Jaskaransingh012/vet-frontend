@@ -7,10 +7,10 @@ const AnimalProduct = () => {
   const [mainImage, setMainImage] = useState(horse);
   const product = {
     id: 1,
-    title: "Ravi Ghoda",
-    price: 199.99,
+    title: "French Bulldog",
+    price: 15000,
     rating: 4.5,
-    description: "Breed ravi ghodi available in kandhwala",
+    description: "French Bulldog is a small breed of domestic dog. Frenchies were the result in the 1800s of a cross between bulldog ancestors imported from England and local ratters in Paris, France.",
     images: [
       'https://via.placeholder.com/500x500',
       'https://via.placeholder.com/500x500?text=Image+2',
@@ -18,11 +18,11 @@ const AnimalProduct = () => {
       'https://via.placeholder.com/500x500?text=Image+4'
     ],
     features: [
-      '65 inches height',
-      '10 feet long',
-      '500kg weight',
-      '75kmph speed',
-      'Black Color'
+      '20 inches height',
+      '3 feet long',
+      '15kg weight',
+      '12kmph speed',
+      'Brown Color'
     ],
     owner: {
       id: 1,
@@ -39,7 +39,7 @@ const AnimalProduct = () => {
           <div className="lg:w-1/2 space-y-6">
             <div className="relative group overflow-hidden rounded-2xl">
               <img
-                src={mainImage}
+                src={"https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"}
                 alt="Main product"
                 className="w-full object-cover transform transition duration-500 group-hover:scale-105"
               />
@@ -66,7 +66,7 @@ const AnimalProduct = () => {
             <div className="animate-fade-in">
               <h1 className="text-4xl font-bold text-gray-900 mb-2">{product.title}</h1>
               <p className="text-2xl text-blue-600 font-semibold mb-4">
-                ${product.price} <span className="text-sm text-gray-500">(Negotiable)</span>
+              ₹{product.price} <span className="text-sm text-gray-500">(Negotiable)</span>
               </p>
               <p className="text-gray-600 text-lg leading-relaxed">{product.description}</p>
 

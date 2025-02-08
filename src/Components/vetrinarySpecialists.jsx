@@ -163,20 +163,6 @@ const VeterinarySpecialities = () => {
       image: cowFood,
       link: "/consult/vet/nutrition",
     },
-    // {
-    //   id: 5,
-    //   name: "Pet Cardiology",
-    //   price: "₹549",
-    //   image: "/images/vet-cardiology.svg",
-    //   link: "/consult/vet/cardiology",
-    // },
-    // {
-    //   id: 6,
-    //   name: "Pet Dentistry",
-    //   price: "₹499",
-    //   image: "/images/vet-dentistry.svg",
-    //   link: "/consult/vet/dentistry",
-    // },
   ];
 
   return (
@@ -198,11 +184,11 @@ const VeterinarySpecialities = () => {
         {/* Slider Container */}
         <div className="glide slider mt-6 overflow-hidden">
           <div className="glide__track" data-glide-el="track">
-            <ul className="glide__slides flex gap-8 justify-start">
+            <ul className="glide__slides flex gap-4 justify-start"> {/* Reduced gap between cards */}
               {specialities.map((speciality) => (
                 <li
                   key={speciality.id}
-                  className="glide__slide flex-shrink-0 w-[250px]" // Increased width and made sure they fit in one row
+                  className="glide__slide flex-shrink-0 w-[250px]" // Increased width of each card
                 >
                   <div className="horizontal-list-card bg-white min-w-[250px] rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow">
                     <div className="top-speciality-card text-center">
@@ -231,22 +217,6 @@ const VeterinarySpecialities = () => {
               ))}
             </ul>
           </div>
-
-          {/* Slider Controls */}
-          {/* <div className="slider-controls mt-4 flex justify-center gap-4">
-            <button
-              className="slider-back bg-gray-200 p-2 rounded-full hover:bg-gray-300 transition-colors"
-              data-glide-dir="<"
-            >
-              <i className="icon-ic_back_cheveron">←</i>
-            </button>
-            <button
-              className="slider-next bg-gray-200 p-2 rounded-full hover:bg-gray-300 transition-colors"
-              data-glide-dir=">"
-            >
-              <i className="icon-ic_next_cheveron">→</i>
-            </button>
-          </div> */}
         </div>
       </div>
     </div>
