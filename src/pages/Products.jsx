@@ -13,8 +13,8 @@ const Products = () => {
 
   return (
     <div className="bg-gray-100">
-      <main className="p-8">
-        <section className="grid gap-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-h-[80vh] overflow-y-auto p-4">
+      <main className="p-8 overflow-y-auto h-screen">
+        <section className="grid gap-12 grid-cols-3 max-h-[60vh] overflow-y-auto p-4">
           {[
             {
               img: "https://cdn.penguin.co.uk/dam-assets/books/9780241972953/9780241972953-jacket-large.jpg",
@@ -35,7 +35,7 @@ const Products = () => {
               price: "14.09",
             },
             {
-              img: "https://rukminim2.flixcart.com/image/850/1000/k1mgu4w0/book/5/9/4/the-comedy-of-errors-original-imafh5vuhdqkfacb.jpeg?q=90&crop=false",
+              img: "https://www.google.com/imgres?q=pet%20products&imgurl=https%3A%2F%2Fhimalayawellness.in%2Fcdn%2Fshop%2Ffiles%2FHPF-PUPPY-1.2-Kg-FRONTSIDE.jpg%3Fv%3D1708921969&imgrefurl=https%3A%2F%2Fhimalayawellness.in%2Fproducts%2Fhealthy-pet-food-puppy-chicken-milk&docid=WzuNMgCHzD4bsM&tbnid=Gd0BgYVMFw6LHM&vet=12ahUKEwjIoJ_eg7KLAxXBrVYBHc_cE7oQM3oECBoQAA..i&w=2000&h=2000&hcb=2&ved=2ahUKEwjIoJ_eg7KLAxXBrVYBHc_cE7oQM3oECBoQAA",
               title: "The Comedy Of Errors",
               author: "William Shakespeare",
               price: "24.99",
