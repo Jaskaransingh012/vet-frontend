@@ -8,7 +8,7 @@ import KuttaImage from "../assets/Images/product_svg/svg/kutta.jpg";
 const Products = () => {
   const [cart, setCart] = useState([]);
 
-  const addToCart = (title, price) => {
+;  const addToCart = (title, price) => {
     setCart([...cart, { title, price }]);
   };
 
@@ -46,7 +46,6 @@ const Products = () => {
             {
               img: "https://getvetco.com/wp-content/uploads/2021/07/Cure-by-Design-500-gms-CBD-Hemp-Oil-for-Dogs-Cats-30-ml.jpg",
               title: "Pet Oil",
-
               price: "12.99",
             },
             {
