@@ -18,8 +18,8 @@ const Products = () => {
 
   return (
     <div className="bg-gray-100">
-      <main className="p-8">
-        <section className="grid gap-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-h-[80vh] overflow-y-auto p-4">
+      <main className="p-8 overflow-y-auto h-screen">
+        <section className="grid gap-12 grid-cols-3 max-h-[60vh] overflow-y-auto p-4">
           {[
             {
               img: pedigreeImage,
@@ -40,9 +40,9 @@ const Products = () => {
               price: "14.09",
             },
             {
-              img: poopImg,
-              title: "Poop Bags", // Corrected title to match image
-              author: "Vet Villa",
+              img: "https://rukminim2.flixcart.com/image/850/1000/k1mgu4w0/book/5/9/4/the-comedy-of-errors-original-imafh5vuhdqkfacb.jpeg?q=90&crop=false",
+              title: "The Comedy Of Errors",
+              author: "William Shakespeare",
               price: "24.99",
             },
             {

@@ -16,9 +16,9 @@ const ProfilePage = () => {
     email: 'john.doe@example.com',
     address: '123 Animal Street, Pune, Maharashtra',
     adsPosted: [
-      { id: 1, title: 'Golden Retriever Puppy', status: 'Available', image: 'https://source.unsplash.com/random/800x600/?dog' },
-      { id: 2, title: 'Persian Cat', status: 'Sold', image: 'https://source.unsplash.com/random/800x600/?cat' },
-      { id: 3, title: 'Parrot', status: 'Available', image: 'https://source.unsplash.com/random/800x600/?parrot' },
+      { id: 1, title: 'Golden Retriever Puppy', status: 'Available', image: "https://www.google.com/imgres?q=golden%20retriever&imgurl=https%3A%2F%2Fconsumer-cms.petfinder.com%2Fsites%2Fdefault%2Ffiles%2Fimages%2Fcontent%2FGolden%2520Retriever%25201.jpg&imgrefurl=https%3A%2F%2Fwww.petfinder.com%2Fdogs-and-puppies%2Fbreeds%2Fgolden-retriever%2F&docid=CYIr3-DmYOyjVM&tbnid=T8wQ9X8HMlQTaM&vet=12ahUKEwj0pq6Y_7GLAxUe5DQHHft1HEcQM3oECHgQAA..i&w=6447&h=5394&hcb=2&ved=2ahUKEwj0pq6Y_7GLAxUe5DQHHft1HEcQM3oECHgQAA" },
+      { id: 2, title: 'Persian Cat', status: 'Sold', image: "https://www.google.com/imgres?q=persian%20cat&imgurl=http%3A%2F%2Fwww.dutch.com%2Fcdn%2Fshop%2Farticles%2Fshutterstock_538333303.jpg%3Fv%3D1683242960&imgrefurl=https%3A%2F%2Fwww.dutch.com%2Fblogs%2Fcats%2Fpersian-cat&docid=afOSPrXQxuOJ_M&tbnid=XUc1Y7qTkTZCgM&vet=12ahUKEwiJo5SUgLKLAxWlqVYBHT_HJDsQM3oFCIABEAA..i&w=1368&h=912&hcb=2&ved=2ahUKEwiJo5SUgLKLAxWlqVYBHT_HJDsQM3oFCIABEAA" },
+      { id: 3, title: 'Parrot', status: 'Available', image: "https://www.google.com/imgres?q=persian%20cat&imgurl=http%3A%2F%2Fwww.dutch.com%2Fcdn%2Fshop%2Farticles%2Fshutterstock_538333303.jpg%3Fv%3D1683242960&imgrefurl=https%3A%2F%2Fwww.dutch.com%2Fblogs%2Fcats%2Fpersian-cat&docid=afOSPrXQxuOJ_M&tbnid=XUc1Y7qTkTZCgM&vet=12ahUKEwiJo5SUgLKLAxWlqVYBHT_HJDsQM3oFCIABEAA..i&w=1368&h=912&hcb=2&ved=2ahUKEwiJo5SUgLKLAxWlqVYBHT_HJDsQM3oFCIABEAA" },
     ],
     followers: 1200,
     following: 350,
