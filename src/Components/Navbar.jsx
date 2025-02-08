@@ -64,7 +64,7 @@ const Navbar = () => {
 
         {/* Post Ad Button */}
         <Link to="/post-ad">
-          <button className="relative px-6 py-2 bg-blue-500 text-white rounded-4xl shadow-md font-semibold hover:bg-green-700 transition-all">
+          <button className="relative px-6 py-2 bg-blue-600 text-white rounded-4xl shadow-md font-semibold hover:bg-blue-500 shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
             Post Ad
           </button>
         </Link>
