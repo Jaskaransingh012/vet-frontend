@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import pedigreeImage from "../assets/Images/pedigree.jpg";
+import glovesImage from "../assets/Images/gloves.jpg";
+import bowlImage from "../assets/Images/product_svg/svg/gloves.jpg"; 
+import poopImg from "../assets/Images/product_svg/svg/poop.jpg";   
+import KuttaImage from "../assets/Images/product_svg/svg/kutta.jpg"; 
 
 const Products = () => {
   const [cart, setCart] = useState([]);
@@ -13,10 +18,11 @@ const Products = () => {
 
   return (
     <div className="bg-gray-100">
-      <main className="p-8 overflow-y-auto h-screen">
-        <section className="grid gap-12 grid-cols-3 max-h-[60vh] overflow-y-auto p-4">
+      <main className="p-8">
+        <section className="grid gap-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-h-[80vh] overflow-y-auto p-4">
           {[
             {
+<<<<<<< HEAD
               img: "https://headsupfortails.com/cdn/shop/files/8906002480449_2.jpg?v=1738409894",
               title: "Pedigree",
               
@@ -44,6 +50,41 @@ const Products = () => {
               img: "https://getvetco.com/wp-content/uploads/2021/07/Cure-by-Design-500-gms-CBD-Hemp-Oil-for-Dogs-Cats-30-ml.jpg",
               title: "Pet Oil",
               
+=======
+              img: pedigreeImage,
+              title: "Dog Food",
+              author: "Vet Villa",
+              price: "9.99",
+            },
+            {
+              img: glovesImage,
+              title: "Hand Gloves",
+              author: "Vet Villa",
+              price: "5.99",
+            },
+            {
+              img: bowlImage,
+              title: "Pet Bowl", // Corrected title to match image
+              author: "Vet Villa",
+              price: "14.09",
+            },
+            {
+              img: poopImg,
+              title: "Poop Bags", // Corrected title to match image
+              author: "Vet Villa",
+              price: "24.99",
+            },
+            {
+              img: KuttaImage,
+              title: "Dog Leash", // Corrected title
+              author: "Vet Villa",
+              price: "12.99",
+            },
+            {
+              img: KuttaImage,
+              title: "Dog Leash", // Corrected title
+              author: "Vet Villa",
+>>>>>>> 28149a023fecc2e9b0ca161658e28e4fa9788fde
               price: "12.99",
             },
             {
@@ -59,20 +100,26 @@ const Products = () => {
               price: "24.89",
             },
             {
+<<<<<<< HEAD
               img: "https://www.bigbasket.com/media/uploads/p/l/40243877_1-first-pet-dog-poop-scooper-large-ergonomic-handle-non-messy.jpg",
               title: "Pet Poop Picker",
              
+=======
+              img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbv7IYL2vUHvrutZDuF7Ryn7n79JsqCRkpyA&s",
+              title: "Alice and A Grump Next Door",
+              author: "Jenny Proctor",
+>>>>>>> 28149a023fecc2e9b0ca161658e28e4fa9788fde
               price: "18.90",
             },
-          ].map((book, index) => (
+          ].map((item, index) => (
             <div key={index} className="bg-white border-2 border-black rounded-lg shadow-md p-4 text-center hover:scale-110 hover:border-blue-700 hover:shadow-lg hover:bg-gray-300 transition-transform">
-              <img src={book.img} alt={book.title} className="w-24 h-36 object-cover rounded-md" />
-              <h3 className="mt-2 text-lg font-semibold">{book.title}</h3>
-              <p className="text-gray-600">{book.author}</p>
-              <p className="text-red-700 font-bold mt-2">${book.price}</p>
+              <img src={item.img} alt={item.title} className=" h-52 object-cover rounded-md mx-auto w-2xl " />
+              <h3 className="mt-2 text-lg font-semibold">{item.title}</h3>
+              <p className="m-s text-gray-600">{item.author}</p>
+              <p className="text-red-700 font-bold mt-2">${item.price}</p>
               <button
                 className="bg-blue-700 text-white rounded-md px-4 py-2 mt-2 transition-colors hover:bg-blue-500"
-                onClick={() => addToCart(book.title, book.price)}
+                onClick={() => addToCart(item.title, item.price)}
               >
                 Add to Cart
               </button>
