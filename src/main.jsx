@@ -25,7 +25,11 @@ import ChatPage from "./pages/chatPage.jsx";
 import PostAd from "./pages/PostAd.jsx";
 import LoginUser from "./pages/LoginPages/LoginUser.jsx";
 import ProductPage from "./pages/ProductPage.jsx";
+<<<<<<< HEAD
 import ConsultDoctor from "./Components/Vetrinary/consult.jsx";
+=======
+import DoctorSignup from "./pages/LoginPages/Signupdoctor.jsx";
+>>>>>>> d7099ef (dharlo)
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -47,7 +51,11 @@ const router = createBrowserRouter(
       <Route path="doctor/video" element={<DocVideo />} />
       <Route path="/login" element={<LoginUser/>} />
       <Route path="signup" element={<Signup />} />
+<<<<<<< HEAD
       <Route path="consult" element={<ConsultDoctor />} />
+=======
+      <Route path="signup-doctor" element={<DoctorSignup />} />
+>>>>>>> d7099ef (dharlo)
     </Route>
   )
 );
