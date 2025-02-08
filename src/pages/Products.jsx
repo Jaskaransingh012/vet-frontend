@@ -24,13 +24,11 @@ const Products = () => {
             {
               img: "https://headsupfortails.com/cdn/shop/files/8906002480449_2.jpg?v=1738409894",
               title: "Pedigree",
-
               price: "9.99",
             },
             {
               img: "https://midstchull.com/cdn/shop/products/7d07a0a8a7d6c38baa21885cf516d0a6.jpg?v=1705138030",
               title: "Pet Grooming Gloves",
-
               price: "19.99",
             },
             {
@@ -87,6 +85,7 @@ const Products = () => {
           ))}
         </section>
 
+        {/* Cart Section */}
         <div className="cart mt-8 border-2 border-black rounded-lg p-4">
           <h2 className="text-2xl font-semibold">Shopping Cart</h2>
           <ul className="mt-4">
@@ -97,9 +96,10 @@ const Products = () => {
               </li>
             ))}
           </ul>
-          <p className="mt-4 text-xl font-semibold">
-            Total: ${getTotalPrice()}
-          </p>
+          <p className="mt-4 text-xl font-semibold">Total: ${getTotalPrice()}</p>
+
+          {/* Buy Now Button Component */}
+          <BuyButton total={getTotalPrice()} />
         </div>
       </main>
 
